@@ -1,0 +1,6 @@
+#include "wts.h"
+
+int main()
+{
+  return 0;
+}
