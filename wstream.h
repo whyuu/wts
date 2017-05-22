@@ -6,11 +6,10 @@
             --->´¦Àí
             --->Free
 */
-#include "wtype.h"
+
 #include "wpes.h"
 #include "wbuf.h"
-#include "wtspayload.h"
- 
+
 class WPesInfo
 {
 private:
@@ -18,7 +17,7 @@ private:
   uint64_t m_ats;
 };
 
-class  WStream 
+class  WStream
 {
 public:
   WStream(int nSize);
@@ -31,6 +30,6 @@ public:
 private:
   WPes* m_parserPes;
   int m_nPesSize;
-  WQueue<WPesInfo* > m_Pes;
-  WQueue<WPesInfo* > m_freePes;
+  //WQueue<WPesInfo* > m_Pes;
+  //WQueue<WPesInfo* > m_freePes;
 };

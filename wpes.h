@@ -1,9 +1,8 @@
 #pragma once
 #include <stdint.h>
 #include "wbuf.h"
-#include "wtspayload.h"
 
-class  WPes : public WTsPayload
+class  WPes
 {
 public:
   WPes();
@@ -40,25 +39,25 @@ public:
   //解析flag
   struct WPesFlag
   {
-    BYTE m_OriginalOrCopy : 1;
-    BYTE m_CopyRight : 1;
-    BYTE m_DataAlignmentIndicator : 1;
-    BYTE m_PesPriority : 1;
-    BYTE m_PesSCramblingControl : 2;
-    BYTE m_Sign : 2;
-    BYTE m_PesExtensionFlag : 1;
-    BYTE m_PesCRCFlag : 1;
-    BYTE m_AdditionalCopyInfoFLag : 1;
-    BYTE m_DsmTrickModeFlag : 1;
-    BYTE m_EsRateFlag : 1;
-    BYTE m_EsCRFlag : 1;
+    uint8_t m_OriginalOrCopy : 1;
+    uint8_t m_CopyRight : 1;
+    uint8_t m_DataAlignmentIndicator : 1;
+    uint8_t m_PesPriority : 1;
+    uint8_t m_PesSCramblingControl : 2;
+    uint8_t m_Sign : 2;
+    uint8_t m_PesExtensionFlag : 1;
+    uint8_t m_PesCRCFlag : 1;
+    uint8_t m_AdditionalCopyInfoFLag : 1;
+    uint8_t m_DsmTrickModeFlag : 1;
+    uint8_t m_EsRateFlag : 1;
+    uint8_t m_EsCRFlag : 1;
     enum
     {
       FLAG_PTS = 2,
       FLAG_PTS_ADN_DTS = 3
     };
-    BYTE m_PtsDtsFlag : 2;
-    BYTE m_PesHeaderDataLength;
+    uint8_t m_PtsDtsFlag : 2;
+    uint8_t m_PesHeaderDataLength;
   };
   const WPesFlag* GetFlag() const;
 
@@ -66,7 +65,8 @@ public:
   uint64_t GetPts() const;
 
   //解析数据
-  int GetData(char* pData ,int nSize) const;
+  const char* GetPayLoad() const;
+  int GetSize() const;
 
 //int SetData(const char* pData, int nSize);
 
