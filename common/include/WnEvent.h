@@ -3,7 +3,7 @@
 // copyright: @Wind Information Co., Ltd (Wind Info) ShangHai
 // Create time: 2011-09-10
 // Modify: 
-//   王辉永（whyuu@163.com） 2014/12/24  重写wait和timed_wait接口，去掉notfiy_one和notify_all接口，增加SetEvent和ResetEvent接口
+//   （whyuu@163.com） 2014/12/24  重写wait和timed_wait接口，去掉notfiy_one和notify_all接口，增加SetEvent和ResetEvent接口
 //   封装了boost的condition_variable，使其使用方法很接近Windows的Event。其优势在于能跨平台使用。
 #include "WnLock.h"
 #include "WnScopedLock.h"
