@@ -4,7 +4,7 @@
 class WSection
 {
 public:
-  WSection();
+  WSection(int nSize = 1024);
   ~WSection();
   void Reset();
 
@@ -21,7 +21,6 @@ public:
   int SetSectionData(const char* pData, int nSize);
 
 private:
-  char m_section[1024]; //Section缓存
-  char* m_pSelfSection; //EIT表时使用这个字段
+  char* m_pSection; //Section缓存
   int m_nSize; //数据大小
 };

@@ -19,15 +19,68 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="common\lib\MemStream.cpp" />
+    <ClCompile Include="common\lib\Ping.cpp" />
+    <ClCompile Include="common\lib\ProcessComm.cpp" />
+    <ClCompile Include="common\lib\Public.cpp" />
+    <ClCompile Include="common\lib\SocketMonitor.cpp" />
+    <ClCompile Include="common\lib\tinystr.cpp" />
+    <ClCompile Include="common\lib\tinyxml.cpp" />
+    <ClCompile Include="common\lib\tinyxmlerror.cpp" />
+    <ClCompile Include="common\lib\tinyxmlparser.cpp" />
+    <ClCompile Include="common\lib\WHttpServer.cpp" />
+    <ClCompile Include="common\lib\WHttpSession.cpp" />
+    <ClCompile Include="common\lib\WLog.cpp" />
+    <ClCompile Include="common\lib\WnScopedLock.cpp" />
+    <ClCompile Include="common\lib\WSignal.cpp" />
+    <ClCompile Include="common\lib\WSocket.cpp" />
+    <ClCompile Include="common\lib\WTcpServer.cpp" />
+    <ClCompile Include="common\lib\WTcpSession.cpp" />
+    <ClCompile Include="common\lib\WTcpSocket.cpp" />
+    <ClCompile Include="common\lib\WTcpSvrSocket.cpp" />
+    <ClCompile Include="common\lib\WTop.cpp" />
+    <ClCompile Include="common\lib\WUdpSocket.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="common\include\commType.h" />
+    <ClInclude Include="common\include\HttpRequest.h" />
+    <ClInclude Include="common\include\MemStream.h" />
+    <ClInclude Include="common\include\Ping.h" />
+    <ClInclude Include="common\include\ProcessComm.h" />
+    <ClInclude Include="common\include\Public.h" />
+    <ClInclude Include="common\include\SocketMonitor.h" />
+    <ClInclude Include="common\include\tinystr.h" />
+    <ClInclude Include="common\include\tinyxml.h" />
+    <ClInclude Include="common\include\WHttpServer.h" />
+    <ClInclude Include="common\include\WHttpSession.h" />
+    <ClInclude Include="common\include\WLog.h" />
+    <ClInclude Include="common\include\WnEvent.h" />
+    <ClInclude Include="common\include\WnLock.h" />
+    <ClInclude Include="common\include\WnScopedLock.h" />
+    <ClInclude Include="common\include\WQueue.h" />
+    <ClInclude Include="common\include\WSignal.h" />
+    <ClInclude Include="common\include\WSocket.h" />
+    <ClInclude Include="common\include\WSocketType.h" />
+    <ClInclude Include="common\include\WTcpServer.h" />
+    <ClInclude Include="common\include\WTcpSession.h" />
+    <ClInclude Include="common\include\WTcpSocket.h" />
+    <ClInclude Include="common\include\WTcpSvrSocket.h" />
+    <ClInclude Include="common\include\WUdpSocket.h" />
     <ClInclude Include="wbuf.h" />
-    <ClInclude Include="wes.h" />
+    <ClInclude Include="weit.h" />
+    <ClInclude Include="wpat.h" />
     <ClInclude Include="wpes.h" />
+    <ClInclude Include="wpmt.h" />
+    <ClInclude Include="wqueue.h" />
+    <ClInclude Include="wsdt.h" />
     <ClInclude Include="wsection.h" />
     <ClInclude Include="wstream.h" />
     <ClInclude Include="wts.h" />
+    <ClInclude Include="wtserror.h" />
+    <ClInclude Include="wtsmgr.h" />
+    <ClInclude Include="wpsisi.h" />
+    <ClInclude Include="wtsoverudpstream.h" />
     <ClInclude Include="wtspk.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -46,7 +99,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -110,10 +163,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\boost;common/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>F:\boost\stage\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

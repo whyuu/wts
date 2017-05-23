@@ -13,10 +13,82 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{b2bb3e16-cbe5-4890-b1f4-37b5b23e7359}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\include">
+      <UniqueIdentifier>{f3ecc4db-3f15-422f-a471-2ac0f71beeca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\lib">
+      <UniqueIdentifier>{afb12c12-108e-458a-8947-1a6608d8de5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\MemStream.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\Ping.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\ProcessComm.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\Public.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\tinystr.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\tinyxml.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\tinyxmlerror.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\tinyxmlparser.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WHttpServer.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WHttpSession.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WLog.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WnScopedLock.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WSignal.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WSocket.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WTcpServer.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WTcpSession.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WTcpSocket.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WTcpSvrSocket.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WTop.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\WUdpSocket.cpp">
+      <Filter>common\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="common\lib\SocketMonitor.cpp">
+      <Filter>common\lib</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -29,16 +101,112 @@
     <ClInclude Include="wtspk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="wsection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="wstream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="wes.h">
+    <ClInclude Include="wbuf.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="wbuf.h">
+    <ClInclude Include="wpat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wqueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wtserror.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wtsmgr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wsection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wpsisi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wpmt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wsdt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\commType.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\HttpRequest.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\MemStream.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\Ping.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\ProcessComm.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\Public.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\SocketMonitor.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\tinystr.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\tinyxml.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WHttpServer.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WHttpSession.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WLog.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WnEvent.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WnLock.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WnScopedLock.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WQueue.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WSignal.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WSocket.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WSocketType.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WTcpServer.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WTcpSession.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WTcpSocket.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WTcpSvrSocket.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="common\include\WUdpSocket.h">
+      <Filter>common\include</Filter>
+    </ClInclude>
+    <ClInclude Include="weit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wtsoverudpstream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

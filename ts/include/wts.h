@@ -13,27 +13,25 @@ struct Program
   std::string m_strProvider;
 };
 
-class WStreamDealer
+class WTsEvent
 {
 public:
-  enum
-  {
-    MSG_PAT_PMT_SDT_FINISH, //参数无
-  };
-  virtual void OnPsiSi(int nMsg, int nParam, uint64_t lparam);
+  virtual void OnPsiSiFinish(uint64_t lparam);
   virtual void OnPes(uint16_t uPid, const WPes* wPes, uint16_t lparam);
 };
 
 class WTs
 {
 public:
-  void Init(WStreamDealer* pD, uint64_t lparam);
+  void Init(WTsEvent* pD, uint64_t lparam);
+
+  //解析ts包
   void Parser(const char tsData[188]);
 
   //解析psisi
   enum
   {
-    PSI_PAT_PMT_SDT = 0x1,
+    PSI_PAT_PMT_SDT = 0x1, //默认不解析
   };
   void ParserPsiSI(uint64_t flag);
 
@@ -56,7 +54,8 @@ private:
   CAT 0x0001
   TSDT 0x0002
   */
-  WPsiSi m_arrPsisi0[16];
+  WPsiSi m_arrPsisi[16];
+
   /*
   NIT, ST 0x0010
   SDT , BAT, ST 0x0011
@@ -65,14 +64,22 @@ private:
   TDT, TOT, ST 0x0014
   网络同步 0x0015
   */
-  WPsiSi m_arrPsisi1[6];
+  WPsiSi m_arrPsisi10[6];
+
   /*
   带内信令0x001C
   测量0x001D
   DIT 0x001E
   SIT 0x001F
   */
-  WPsiSi m_arrPsisi2[6];
-  //pes
-  std::map<uint16_t, WPes*> m_arrPes;
+  WPsiSi m_arrPsisi1c[6];
+
+  //pes Dealer
+  struct PesDealer
+  {
+    WPes pes;
+    PesDealer* pObj;
+    uint64_t lparam;
+  };
+  std::map<uint16_t, PesDealer*> m_arrPes;
 };
