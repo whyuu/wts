@@ -13,18 +13,9 @@ struct Program
   std::string m_strProvider;
 };
 
-class WTsEvent
-{
-public:
-  virtual void OnPsiSiFinish(uint64_t lparam);
-  virtual void OnPes(uint16_t uPid, const WPes* wPes, uint16_t lparam);
-};
-
 class WTs
 {
 public:
-  void Init(WTsEvent* pD, uint64_t lparam);
-
   //解析ts包
   void Parser(const char tsData[188]);
 
@@ -42,13 +33,10 @@ public:
   //获取节目
   void GetProgramList(std::vector<Program>& arrProgList);
 
-private:
-  uint8_t* GetPayLoad();
-  int GetPayLoadSize();
-  void SetPayLoad(uint8_t* pData, int nSize);
+protected:
+  virtual void OnPes(uint16_t uPid, const WPes* wPes, uint16_t lparam) = 0;
 
 private:
-  uint64_t lparam;
   /*
   PAT 0x0000
   CAT 0x0001

@@ -9,15 +9,15 @@ public:
   void Reset();
 
   virtual bool Append(char* pData, int nSize);
-  uint8_t GetSectionSyntaxIndicator();
-  uint8_t GetSectionLength();
-  uint8_t GetVersionNumber();
-  uint8_t GetCurrentNextIndicator();
-  uint8_t GetSectionNumber();
-  uint8_t GetLastSectionNumber();
-  uint32_t GetCrc();
-  const char* GetSectionData();
-  int GetSectionSize();
+  uint8_t GetSectionSyntaxIndicator() const;
+  uint8_t GetSectionLength() const;
+  uint8_t GetVersionNumber() const;
+  uint8_t GetCurrentNextIndicator() const;
+  uint8_t GetSectionNumber() const;
+  uint8_t GetLastSectionNumber() const;
+  uint32_t GetCrc() const;
+  const char* GetSectionData() const;
+  int GetSectionSize() const;
   int SetSectionData(const char* pData, int nSize);
 
 private:

@@ -41,6 +41,16 @@
     <ClCompile Include="common\lib\WTop.cpp" />
     <ClCompile Include="common\lib\WUdpSocket.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ts\src\weit.cpp" />
+    <ClCompile Include="ts\src\wpes.cpp" />
+    <ClCompile Include="ts\src\wpmt.cpp" />
+    <ClCompile Include="ts\src\wpsisi.cpp" />
+    <ClCompile Include="ts\src\wsdt.cpp" />
+    <ClCompile Include="ts\src\wsection.cpp" />
+    <ClCompile Include="ts\src\wts.cpp" />
+    <ClCompile Include="ts\src\wudptsmgr.cpp" />
+    <ClCompile Include="ts\src\wudpts.cpp" />
+    <ClCompile Include="ts\src\wtspk.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\include\commType.h" />
@@ -67,21 +77,21 @@
     <ClInclude Include="common\include\WTcpSocket.h" />
     <ClInclude Include="common\include\WTcpSvrSocket.h" />
     <ClInclude Include="common\include\WUdpSocket.h" />
-    <ClInclude Include="wbuf.h" />
-    <ClInclude Include="weit.h" />
-    <ClInclude Include="wpat.h" />
-    <ClInclude Include="wpes.h" />
-    <ClInclude Include="wpmt.h" />
-    <ClInclude Include="wqueue.h" />
-    <ClInclude Include="wsdt.h" />
-    <ClInclude Include="wsection.h" />
-    <ClInclude Include="wstream.h" />
-    <ClInclude Include="wts.h" />
-    <ClInclude Include="wtserror.h" />
-    <ClInclude Include="wtsmgr.h" />
-    <ClInclude Include="wpsisi.h" />
-    <ClInclude Include="wtsoverudpstream.h" />
-    <ClInclude Include="wtspk.h" />
+    <ClInclude Include="ts\include\wbuf.h" />
+    <ClInclude Include="ts\include\weit.h" />
+    <ClInclude Include="ts\include\wpat.h" />
+    <ClInclude Include="ts\include\wpes.h" />
+    <ClInclude Include="ts\include\wpmt.h" />
+    <ClInclude Include="ts\include\wpsisi.h" />
+    <ClInclude Include="ts\include\wsdt.h" />
+    <ClInclude Include="ts\include\wsection.h" />
+    <ClInclude Include="ts\include\wstream.h" />
+    <ClInclude Include="ts\include\wts.h" />
+    <ClInclude Include="ts\include\wtserror.h" />
+    <ClInclude Include="ts\include\wudptsmgr.h" />
+    <ClInclude Include="ts\include\wudpts.h" />
+    <ClInclude Include="ts\include\wtspk.h" />
+    <ClInclude Include="ts\src\wpat.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CC293A8A-99BB-4892-9885-6AC7165F4360}</ProjectGuid>
@@ -163,7 +173,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\boost;common/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\boost;common/include;ts/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

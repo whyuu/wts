@@ -6,22 +6,22 @@
 #include "wts.h"
 #include "WQueue.h"
 
-struct UdpStream
+struct UdpInfo
 {
   int nId;
   std::string strIp;
   uint16_t uPort;
 };
 
-class TsOverUdpStream;
+class WUdpTs;
 //管理udp接收的ts列表
-class CWTsOverUdpMgr : public WTsEvent
+class CWUdpTsMgr
 {
 public:
   //流管理
-  virtual bool AddTs(UdpStream ts);
+  virtual int AddTs(const UdpInfo& ts);
   void DelTs(int nId);
-  void GetTsList(std::vector<TsOverUdpStream>& arrStream);
+  void GetTsList(std::vector<UdpInfo>& arrStream);
 
   //设置Psisi解析flag
   void SetPsisiFlag(int nFlag);
@@ -35,10 +35,5 @@ public:
 
   //其他
 protected:
-  void OnPsiSiFinish(uint64_t lparam)
-  {
-    //TDOO
-  }
-
-  std::map<int, TsOverUdpStream*> m_arrStream;//map字段中第一个为socket句柄
+  std::map<int, WUdpTs*> m_arrStream;//map字段中第一个为socket句柄
 };

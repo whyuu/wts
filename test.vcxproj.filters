@@ -22,6 +22,15 @@
     <Filter Include="common\lib">
       <UniqueIdentifier>{afb12c12-108e-458a-8947-1a6608d8de5f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ts">
+      <UniqueIdentifier>{cb469e2a-45e4-4c0d-89ed-3d639a23689e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ts\include">
+      <UniqueIdentifier>{7a445be0-366a-439d-b648-8788dc1dbff8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ts\src">
+      <UniqueIdentifier>{f8224319-f59b-4bb5-8ed5-1442c08cc105}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -90,47 +99,38 @@
     <ClCompile Include="common\lib\SocketMonitor.cpp">
       <Filter>common\lib</Filter>
     </ClCompile>
+    <ClCompile Include="ts\src\wpes.cpp">
+      <Filter>ts\src</Filter>
+    </ClCompile>
+    <ClCompile Include="ts\src\wpmt.cpp">
+      <Filter>ts\src</Filter>
+    </ClCompile>
+    <ClCompile Include="ts\src\wpsisi.cpp">
+      <Filter>ts\src</Filter>
+    </ClCompile>
+    <ClCompile Include="ts\src\wsdt.cpp">
+      <Filter>ts\src</Filter>
+    </ClCompile>
+    <ClCompile Include="ts\src\wsection.cpp">
+      <Filter>ts\src</Filter>
+    </ClCompile>
+    <ClCompile Include="ts\src\wts.cpp">
+      <Filter>ts\src</Filter>
+    </ClCompile>
+    <ClCompile Include="ts\src\wtspk.cpp">
+      <Filter>ts\src</Filter>
+    </ClCompile>
+    <ClCompile Include="ts\src\weit.cpp">
+      <Filter>ts\src</Filter>
+    </ClCompile>
+    <ClCompile Include="ts\src\wudptsmgr.cpp">
+      <Filter>ts\src</Filter>
+    </ClCompile>
+    <ClCompile Include="ts\src\wudpts.cpp">
+      <Filter>ts\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="wts.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wpes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wtspk.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wstream.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wbuf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wpat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wqueue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wtserror.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wtsmgr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wsection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wpsisi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wpmt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wsdt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="common\include\commType.h">
       <Filter>common\include</Filter>
     </ClInclude>
@@ -203,11 +203,50 @@
     <ClInclude Include="common\include\WUdpSocket.h">
       <Filter>common\include</Filter>
     </ClInclude>
-    <ClInclude Include="weit.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="ts\include\wpat.h">
+      <Filter>ts\include</Filter>
     </ClInclude>
-    <ClInclude Include="wtsoverudpstream.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="ts\include\wpes.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wpmt.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wpsisi.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wsdt.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wsection.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wstream.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wts.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wtserror.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wtspk.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\src\wpat.cpp">
+      <Filter>ts\src</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\weit.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wbuf.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wudptsmgr.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wudpts.h">
+      <Filter>ts\include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

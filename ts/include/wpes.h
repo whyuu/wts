@@ -37,7 +37,7 @@ public:
   uint16_t GetCurSize() const;
 
   //½âÎöflag
-  struct WPesFlag
+  struct WFlag
   {
     uint8_t m_OriginalOrCopy : 1;
     uint8_t m_CopyRight : 1;
@@ -59,7 +59,7 @@ public:
     uint8_t m_PtsDtsFlag : 2;
     uint8_t m_PesHeaderDataLength;
   };
-  const WPesFlag* GetFlag() const;
+  const WFlag* GetFlag() const;
 
   uint64_t GetDts() const;
   uint64_t GetPts() const;

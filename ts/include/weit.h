@@ -1,12 +1,7 @@
 #pragma once
-#include "wsection.h"
+#include "wpsisi.h"
 #include <vector>
-class WPsiSi
+class WEit : public WPsiSi
 {
 public:
-  int ParserHead(const char*, int);
-  int Append(const char*, int);
-private:
-  std::vector<WSection> m_arrSection;
-  int m_nCurSectionNum;
 };
