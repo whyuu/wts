@@ -396,5 +396,6 @@ namespace Public
     return bRes;
   }
 }
+#else
 
 #endif

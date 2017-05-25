@@ -6,8 +6,8 @@
 class WUdpTs : public WTs
 {
 public:
-  virtual ~WUdpTs();
-  int WUdpTs::Create(const std::string& strIp, uint16_t uPort);
+  virtual ~WUdpTs(){}
+  int Create(const std::string& strIp, uint16_t uPort);
 
 protected:
   void OnPes(uint16_t uPid, const WPes* wPes, uint16_t lparam);

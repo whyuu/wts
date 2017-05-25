@@ -19,9 +19,8 @@ class CWUdpTsMgr
 {
 public:
   //流管理
-  virtual int AddTs(const UdpInfo& ts);
+  virtual int AddTs(const std::string& strIp, uint16_t uPort);
   void DelTs(int nId);
-  void GetTsList(std::vector<UdpInfo>& arrStream);
 
   //设置Psisi解析flag
   void SetPsisiFlag(int nFlag);
@@ -35,5 +34,5 @@ public:
 
   //其他
 protected:
-  std::map<int, WUdpTs*> m_arrStream;//map字段中第一个为socket句柄
+  std::map<int, WUdpTs*> m_arrTs;//map字段中第一个为socket句柄
 };

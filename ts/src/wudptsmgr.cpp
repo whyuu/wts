@@ -1,16 +1,16 @@
 #include "wudptsmgr.h"
-
+#include "wudpts.h"
+using namespace std;
 //Á÷¹ÜÀí
-int CWUdpTsMgr::AddTs(const UdpInfo& ts)
+int CWUdpTsMgr::AddTs(const std::string& strIp, uint16_t uPort)
 {
-  return 0;
+  WUdpTs* pObj = new WUdpTs();
+  int nSocket = pObj->Create(strIp, uPort);
+  m_arrTs.insert(pair<int, WUdpTs*>(nSocket, pObj));
+  return nSocket;
 }
 
 void CWUdpTsMgr::DelTs(int nId)
-{
-}
-
-void CWUdpTsMgr::GetTsList(std::vector<UdpInfo>& arrStream)
 {
 }
 
