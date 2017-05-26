@@ -107,13 +107,22 @@ namespace Public
 				}
 				return true;
 			}
-
 		}
 		return false;
 	}
-
+ bool CheckIpV4Multiple(UINT32 uIp)
+ {
+   in_addr tmp;
+   tmp.S_un.S_addr = uIp;
+   if (tmp.S_un.S_un_b.s_b1 >= 224
+     && tmp.S_un.S_un_b.s_b1 <= 239)
+   {
+     return true;
+   }
+   return false;
+ }
 	int split(const string & strSrc, const string& strDelims, vector<UINT32>& strDest)
-	{  
+	{
 		typedef std::string::size_type ST;  
 		string delims = strDelims;  
 		std::string STR;  

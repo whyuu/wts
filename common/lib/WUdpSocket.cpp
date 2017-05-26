@@ -82,18 +82,17 @@ bool CWUdpSocket::Bind(u_short nSocketPort, u_long uIp)
 	{
 		return false;
 	}
-
 	struct sockaddr_in sockAddr;
-	memset(&sockAddr, 0, sizeof(sockAddr));	
+	memset(&sockAddr, 0, sizeof(sockAddr));
 	sockAddr.sin_family = AF_INET;
-	sockAddr.sin_addr.s_addr = uIp;	
+	sockAddr.sin_addr.s_addr = uIp;
 	sockAddr.sin_port = htons((u_short)nSocketPort);
 #ifdef _WIN32
-	if (sockAddr.sin_addr.s_net>= 224
-		&& sockAddr.sin_addr.s_net <= 239)
-	{
-		return false;
-	}
+ if (sockAddr.sin_addr.s_net>= 224
+   && sockAddr.sin_addr.s_net <= 239)
+ {
+   return false;
+ }
 #endif
 	if (SOCKET_ERROR == bind(m_hSocket, (struct sockaddr *)&sockAddr, sizeof(sockAddr)))
 	{
@@ -108,12 +107,8 @@ bool CWUdpSocket::Bind(u_short nSocketPort, u_long uIp)
 //·µ  »Ø : SOCKET_ERROR´íÎóÂë
 int CWUdpSocket::SetMultiAddr(u_long uIp, u_long uSelectIp)
 {
-#ifdef _WIN32
-	struct ip_mreq mcast;
-	mcast.imr_multiaddr.s_addr = uIp;
-	mcast.imr_interface.s_addr = uSelectIp;
-	return setsockopt(m_hSocket, IPPROTO_IP,IP_ADD_MEMBERSHIP, (char*)&mcast, sizeof(mcast));
-#else
-	return 0;
-#endif
+  struct ip_mreq mcast;
+  mcast.imr_multiaddr.s_addr = uIp;
+  mcast.imr_interface.s_addr = uSelectIp;
+  return setsockopt(m_hSocket, IPPROTO_IP,IP_ADD_MEMBERSHIP, (char*)&mcast, sizeof(mcast));
 }

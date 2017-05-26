@@ -16,6 +16,7 @@ struct Program
 class WTs
 {
 public:
+  WTs();
   //½âÎöts°ü
   void Parser(const char tsData[188]);
 

@@ -1,4 +1,3 @@
-#pragma once
 #include "wsection.h"
 
 WSection::WSection(int nSize)
