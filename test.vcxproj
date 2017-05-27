@@ -88,6 +88,8 @@
     <ClInclude Include="ts\include\wstream.h" />
     <ClInclude Include="ts\include\wts.h" />
     <ClInclude Include="ts\include\wtserror.h" />
+    <ClInclude Include="ts\include\wtspayload.h" />
+    <ClInclude Include="ts\include\wtype.h" />
     <ClInclude Include="ts\include\wudptsmgr.h" />
     <ClInclude Include="ts\include\wudpts.h" />
     <ClInclude Include="ts\include\wtspk.h" />

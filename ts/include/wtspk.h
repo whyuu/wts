@@ -5,6 +5,7 @@ class WTsPk
 public:
   void Set(const char data[188]);
   void Get(char data[188]) const;
+  bool GetPayLoadUnitStart() const;
   uint8_t GetAdaptionFieldControl() const;
   uint16_t GetPid() const;
   void SetPid(uint16_t wPid);

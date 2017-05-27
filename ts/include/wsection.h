@@ -7,8 +7,9 @@ public:
   WSection(int nSize = 1024);
   ~WSection();
   void Reset();
-
-  virtual bool Append(char* pData, int nSize);
+  int SetHead(const char* pData, int nSize);
+  int Append(const char* pData, int nSize);
+  bool IsFinish();
   uint8_t GetSectionSyntaxIndicator() const;
   uint8_t GetSectionLength() const;
   uint8_t GetVersionNumber() const;
@@ -23,4 +24,6 @@ public:
 private:
   char* m_pSection; //Section缓存
   int m_nSize; //数据大小
+  int m_nTotalSectionSize;
+  int m_nMaxSize;//最大值
 };

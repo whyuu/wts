@@ -5,6 +5,7 @@
 #include <map>
 #include "wstream.h"
 #include "wpsisi.h"
+#include "wtspayload.h"
 
 struct Program
 {
@@ -43,7 +44,7 @@ private:
   CAT 0x0001
   TSDT 0x0002
   */
-  WPsiSi m_arrPsisi[16];
+  WPsiSi m_arrPsisi[3];
 
   /*
   NIT, ST 0x0010
@@ -61,14 +62,8 @@ private:
   DIT 0x001E
   SIT 0x001F
   */
-  WPsiSi m_arrPsisi1c[6];
+  WPsiSi m_arrPsisi1c[4];
 
-  //pes Dealer
-  struct PesDealer
-  {
-    WPes pes;
-    PesDealer* pObj;
-    uint64_t lparam;
-  };
-  std::map<uint16_t, PesDealer*> m_arrPes;
+  std::vector<WPsiSi> m_arrPmt;
+  std::map<uint16_t, WTsPayLoad*> m_arrPayLoad;
 };

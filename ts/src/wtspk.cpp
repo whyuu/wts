@@ -37,6 +37,12 @@ void WTsPk::Get(char data[188]) const
 {
 }
 
+bool WTsPk::GetPayLoadUnitStart() const
+{
+  WTsHead* pTs = (WTsHead*)m_ts;
+  return pTs->m_PayloadUnitStartIndicator;
+}
+
 uint16_t WTsPk::GetPid() const
 {
   WTsHead* pTs = (WTsHead*)m_ts;

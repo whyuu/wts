@@ -248,5 +248,11 @@
     <ClInclude Include="ts\include\wudpts.h">
       <Filter>ts\include</Filter>
     </ClInclude>
+    <ClInclude Include="ts\include\wtype.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
+    <ClInclude Include="ts\include\wtspayload.h">
+      <Filter>ts\include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

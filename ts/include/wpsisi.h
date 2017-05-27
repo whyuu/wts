@@ -1,16 +1,22 @@
 #pragma once
-#include "wsection.h"
 #include <vector>
-class WPsiSi
+#include "wsection.h"
+#include "wtspayload.h"
+
+class WPsiSi : public WTsPayLoad
 {
 public:
   WPsiSi();
-  void SetSessionSize(int nSessionSize){m_nSessionSize = nSessionSize;}
-  int ParserHead(const char*, int);
-  int Append(const char*, int);
+  bool ParserHead(const char*, int);
+  bool Append(const char*, int);
 
+  void SetSessionSize(int nSessionSize){m_nSessionSize = nSessionSize;}
+  bool IsFinish();
 protected:
+  bool IsPes(){return false;}
   std::vector<WSection*> m_arrSection;
-  int m_nCurSectionNum;
   int m_nSessionSize;
+  int m_nLastSessionNumber;
+  int m_nCurrentNum;
+  bool m_bFinish;
 };
