@@ -11,54 +11,24 @@ void WTs::Parser(const char tsData[188])
 {
   const WTsPk* pTs = (const WTsPk*)tsData;
   uint16_t uPid = pTs->GetPid();
-  if (uPid < 0x20)
+  std::map<uint16_t, WTsPayLoad*>::iterator it = m_arrPayLoad.find(uPid);
+  if (it != m_arrPayLoad.end())
   {
-    WPsiSi* pObj = NULL;
-    if (uPid < 0x2)
+    WTsPayLoad* pPayLoad = it->second;
+    if (pTs->GetPayLoadUnitStart())
     {
-      pObj = &m_arrPsisi[uPid];
-    }
-    else if (uPid >= 0x10 && uPid <= 0x15)
-    {
-      pObj = &m_arrPsisi10[uPid - 0x10];
-    }
-    else if (uPid >= 0x1c)
-    {
-      pObj = &m_arrPsisi10[uPid - 0x1c];
+      pPayLoad->ParserHead(pTs->GetPayLoad(), pTs->GetPayLoadSize());
     }
     else
     {
-      printf("Unkonw Psisi\n");
+      pPayLoad->Append(pTs->GetPayLoad(), pTs->GetPayLoadSize());
     }
-    if (pObj)
-    {
-      if (pObj->IsFinish())
-      {
-        printf("table %x finish\n", uPid);
-        if (uPid == 0)
-        {
-        }
-        return;
-      }
-
-      if (pTs->GetPayLoadUnitStart())
-      {
-        pObj->ParserHead(pTs->GetPayLoad(), pTs->GetPayLoadSize());
-      }
-      else
-      {
-        pObj->Append(pTs->GetPayLoad(), pTs->GetPayLoadSize());
-      }
-    }
-  }
-  else
-  {
-    //pes
   }
 }
 
 void WTs::ParserPsiSI(uint64_t flag)
 {
+  
 }
 
 //½âÎöpes

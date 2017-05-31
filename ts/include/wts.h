@@ -64,6 +64,9 @@ private:
   */
   WPsiSi m_arrPsisi1c[4];
 
+  /*pmt*/
   std::vector<WPsiSi> m_arrPmt;
+
+  //½âÎöÀà
   std::map<uint16_t, WTsPayLoad*> m_arrPayLoad;
 };

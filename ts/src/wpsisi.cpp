@@ -13,6 +13,7 @@ bool WPsiSi::ParserHead(const char* pbuf, int nSize)
   int JumpSize = 1 + *pbuf;
   const char* pRealData = pbuf + JumpSize;
   const WSectionHead* pS = (const WSectionHead*) pRealData;
+
   while (pS->m_LastSectionNumber + 1 > m_arrSection.size())
   {
     m_arrSection.push_back(new WSection(m_nSessionSize));
@@ -33,7 +34,6 @@ bool WPsiSi::ParserHead(const char* pbuf, int nSize)
 
 bool WPsiSi::Append(const char* pbuf, int nSize)
 {
-  const WSectionHead* pS = (const WSectionHead*) pbuf;
   WSection* pSS = m_arrSection[m_nCurrentNum];
   if (!pSS->IsFinish())
   {

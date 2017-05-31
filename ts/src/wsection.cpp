@@ -45,7 +45,7 @@ int WSection::Append(const char* pData, int nSize)
 
 bool WSection::IsFinish()
 {
- if (m_nSize <= 0 ||m_nSize <  m_nTotalSectionSize)
+ if (m_nSize <= 0 ||m_nSize < m_nTotalSectionSize)
  {
    return false;
  }
