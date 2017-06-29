@@ -1,15 +1,18 @@
 #pragma once
 #include <stdint.h>
 #include "wbuf.h"
-
-class  WPes
+#include "wtspayload.h"
+class  WPes : public WTsPayLoad
 {
 public:
   WPes();
   ~WPes();
   //填充数据
-  int ParserHead(const char* pData, int nSize);
-  int Append(const char* pData, int nSize);
+  bool ParserHead(const char* pData, int nSize);
+  bool Append(const char* pData, int nSize);
+
+  uint64_t GetPts();
+  uint64_t GetDts();
 
   //解析头
   enum

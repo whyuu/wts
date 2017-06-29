@@ -34,6 +34,7 @@ void WTs::ParserPsiSI(uint64_t flag)
 //½âÎöpes
 void WTs::AddPesParser(uint16_t uPid)
 {
+   WPes* pPes= new WPes();
 }
 
 void WTs::DelPesParser(uint16_t uPid)
