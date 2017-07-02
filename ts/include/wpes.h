@@ -2,17 +2,22 @@
 #include <stdint.h>
 #include "wbuf.h"
 #include "wtspayload.h"
+
+class WPes;
+class IPesDealer
+{
+public:
+  virtual void OnPes(const WPes* wPes) = 0;
+};
+
 class  WPes : public WTsPayLoad
 {
 public:
-  WPes();
-  ~WPes();
+  WPes(IPesDealer* pDealer);
+  IPesDealer* GetDealer() { return m_pDealer; }
   //填充数据
   bool ParserHead(const char* pData, int nSize);
   bool Append(const char* pData, int nSize);
-
-  uint64_t GetPts();
-  uint64_t GetDts();
 
   //解析头
   enum
@@ -75,5 +80,6 @@ public:
 
 private:
   WBuf m_pesBuf;
-  int m_nPesSize;
+  uint16_t m_nPesSize;
+  IPesDealer* m_pDealer;
 };

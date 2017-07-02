@@ -18,7 +18,7 @@ public:
 		byHigh = (BYTE)(w>>8);
 		byLow = (BYTE)w;
 	}
-	operator WORD()
+	operator WORD() const
 	{
 		return ((WORD)byHigh<<8)|byLow;
 	}

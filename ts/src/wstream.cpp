@@ -1,4 +1,3 @@
-#pragma once
 /*
       线程1 --->ParserHead
             --->Append
@@ -7,29 +6,35 @@
             --->Free
 */
 
-#include "wpes.h"
-#include "wbuf.h"
+#include "wstream.h"
 
-class WPesInfo
+int WStream::ParserHead(const char* pHead, int nSize)
 {
-private:
-  WPes m_pes;
-  uint64_t m_ats;
-};
+  do
+  {
+    const WPesHead* pPesHead = (const WPesHead*)pData;
+    if (!pPesHead)
+    {
+      break;
+    }
+    //校验头
+    if (pPesHead->m_StartCodePreFixHigh != 0
+      || pPesHead->m_StartCodePreFixMiddle != 0
+      || pPesHead->m_StartCodePreFixLow != 1)
+    {
+      return false;
+    }
 
-class  WStream
+    if (m_nPesSize == 0 && m_pesBuf.GetSize() > 0)
+    {
+
+    }
+    //判断长度
+    m_nPesSize = pPesHead->m_PesPacketLength;
+    m_pesBuf.Set(pData, nSize);
+  } while (0);
+}
+int WStream::Append(const char* pBody, int nSize) // 返回错误码为3级报错，错误码
 {
-public:
-  WStream(int nSize);
-  ~WStream();
-  int ParserHead(const char* pHead, int nSize);
-  int Append(const char* pBody, int nSize); // 返回错误码为3级报错，错误码
-  const WPesInfo* Get(); // 返回错误码为3级报错，错误码
-  void Free(const WPesInfo* pPes) const;
-  //todo other
-private:
-  WPes* m_parserPes;
-  int m_nPesSize;
-  //WQueue<WPesInfo* > m_Pes;
-  //WQueue<WPesInfo* > m_freePes;
-};
+  return 0;
+}

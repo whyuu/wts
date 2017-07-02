@@ -34,6 +34,9 @@ struct WPesHead
   BYTE m_StreamID;
   CMyWORD m_PesPacketLength;
 };
+WPes::WPes(IPesDealer* pDealer) : m_pesBuf(pDealer)
+{
+}
 //填充数据
 bool WPes::ParserHead(const char* pData, int nSize)
 {
@@ -49,13 +52,18 @@ bool WPes::ParserHead(const char* pData, int nSize)
       || pPesHead->m_StartCodePreFixMiddle != 0
       || pPesHead->m_StartCodePreFixLow != 1)
     {
-      TRACE("Pes Header Error\n");
       return false;
     }
 
+    if (m_nPesSize == 0 && m_pesBuf.GetSize() > 0)
+    {
+      
+    }
     //判断长度
-    uint16_t nLength = (WORD)pPesHead->m_PesPacketLength;
-    if (nLength > (UINT)memStream.GetLeftDataSize())
+    m_nPesSize = pPesHead->m_PesPacketLength;
+    m_pesBuf.Set(pData, nSize);
+    
+    if (nLength > (uint32_t))
     {
       break;
     }
@@ -147,10 +155,9 @@ bool WPes::Append(const char* pData, int nSize)
 
 uint64_t WPes::GetPts()
 {
-  const WPesHead* pPesHead = (const WPesHead*)pData;
+  const WPesHead* pPesHead = (const WPesHead*)m_pesBuf;
   if (!pPesHead)
   {
-    break; 
   }
 }
 uint64_t WPes::GetDts()

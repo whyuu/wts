@@ -1,6 +1,7 @@
 #include "wts.h"
 #include "wtspk.h"
-
+#include "wtspayload.h"
+using namespace std;
 WTs::WTs()
 {
   m_arrPsisi10[2].SetSessionSize(4096);
@@ -11,17 +12,28 @@ void WTs::Parser(const char tsData[188])
 {
   const WTsPk* pTs = (const WTsPk*)tsData;
   uint16_t uPid = pTs->GetPid();
-  std::map<uint16_t, WTsPayLoad*>::iterator it = m_arrPayLoad.find(uPid);
-  if (it != m_arrPayLoad.end())
+  if (uPid < 0x20)
   {
-    WTsPayLoad* pPayLoad = it->second;
-    if (pTs->GetPayLoadUnitStart())
+    if (uPid != )
     {
-      pPayLoad->ParserHead(pTs->GetPayLoad(), pTs->GetPayLoadSize());
     }
-    else
+    continue;
+  }
+  else
+  {
+    CWnScopedLock Lock(m_lock);
+    std::map<uint16_t, WTsPayLoad*>::iterator it = m_arrPayLoad.find(uPid);
+    if (it != m_arrPayLoad.end())
     {
-      pPayLoad->Append(pTs->GetPayLoad(), pTs->GetPayLoadSize());
+      WTsPayLoad* pPayLoad = it->second;
+      if (pTs->GetPayLoadUnitStart())
+      {
+        pPayLoad->ParserHead(pTs->GetPayLoad(), pTs->GetPayLoadSize());
+      }
+      else
+      {
+        pPayLoad->Append(pTs->GetPayLoad(), pTs->GetPayLoadSize());
+      }
     }
   }
 }
@@ -32,13 +44,36 @@ void WTs::ParserPsiSI(uint64_t flag)
 }
 
 //解析pes
-void WTs::AddPesParser(uint16_t uPid)
+bool WTs::AddPesParser(uint16_t uPid, IPesDealer* pesParser)
 {
-   WPes* pPes= new WPes();
+  CWnScopedLock Lock(m_lock);
+   WPes* pPes= new WPes(pesParser);
+   std::pair<map<uint16_t, WTsPayLoad*>::iterator, bool > ret 
+     = m_arrPayLoad.insert(pair<uint16_t, WTsPayLoad*>(uPid, pPes));
+   if (ret.second)
+   {
+     return true;
+   }
+   return false;
 }
 
-void WTs::DelPesParser(uint16_t uPid)
+IPesDealer* WTs::DelPesParser(uint16_t uPid)
 {
+  IPesDealer* pObj = NULL;
+  CWnScopedLock Lock(m_lock);
+  map<uint16_t, WTsPayLoad*>::iterator it = m_arrPayLoad.find(uPid);
+  if (it != m_arrPayLoad.end() && it->second->IsPes())
+  {
+    WPes* pPayLoad = (WPes*)it->second;
+    m_arrPayLoad.erase(it);
+    Lock.unlock();
+    pObj = pPayLoad->GetDealer();
+
+    //加入删除队列；
+
+    return pObj;
+  }
+  return;
 }
 
 //获取节目

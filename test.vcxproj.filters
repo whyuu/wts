@@ -129,6 +129,9 @@
     <ClCompile Include="ts\src\wudpts.cpp">
       <Filter>ts\src</Filter>
     </ClCompile>
+    <ClCompile Include="ts\src\wstream.cpp">
+      <Filter>ts\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\include\commType.h">
