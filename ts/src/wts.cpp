@@ -14,10 +14,11 @@ void WTs::Parser(const char tsData[188])
   uint16_t uPid = pTs->GetPid();
   if (uPid < 0x20)
   {
-    if (uPid != )
-    {
-    }
-    continue;
+//     if (uPid != )
+//     {
+//     }
+    //continue;
+    return;
   }
   else
   {
@@ -38,7 +39,7 @@ void WTs::Parser(const char tsData[188])
   }
 }
 
-void WTs::ParserPsiSI(uint64_t flag)
+void WTs::ParserPsiSI(uint16_t uPid)
 {
   
 }
@@ -47,7 +48,7 @@ void WTs::ParserPsiSI(uint64_t flag)
 bool WTs::AddPesParser(uint16_t uPid, IPesDealer* pesParser)
 {
   CWnScopedLock Lock(m_lock);
-   WPes* pPes= new WPes(pesParser);
+  WPes* pPes= new WPes(pesParser);
    std::pair<map<uint16_t, WTsPayLoad*>::iterator, bool > ret 
      = m_arrPayLoad.insert(pair<uint16_t, WTsPayLoad*>(uPid, pPes));
    if (ret.second)

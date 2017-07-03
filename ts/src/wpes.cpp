@@ -1,39 +1,7 @@
 #include "wtype.h"
 #include "wpes.h"
 
-struct WPesHead
-{
-  WPesHead():m_StartCodePreFixHigh(0),
-    m_StartCodePreFixMiddle(0),
-    m_StartCodePreFixLow(1),
-    m_StreamID(0),
-    m_PesPacketLength((WORD)0){}
-  enum
-  {
-    PROGRAM_STREAM_MAP = 0xBC,
-    PRIVATE_STREAM_1,
-    PADDING_STREAM,
-    PRIVATE_STREAM_2,
-    AUDIO_STREAM,
-    VIDEO_STREAM = 0xE0,
-    ECM_STREAM = 0xF0,
-    EMM_STREAM,
-    DSMCC_STREAM,
-    STREAM_13522,
-    H2221_A,
-    H2221_B,
-    H2221_C,
-    H2221_D,
-    H2221_E,
-    ANCILLARY_STREAM,
-    PROGRAM_STREAM_DIRECTORY = 0xFF
-  };
-  BYTE m_StartCodePreFixHigh;
-  BYTE m_StartCodePreFixMiddle;
-  BYTE m_StartCodePreFixLow;
-  BYTE m_StreamID;
-  CMyWORD m_PesPacketLength;
-};
+
 WPes::WPes(IPesDealer* pDealer) : m_pesBuf(pDealer)
 {
 }
